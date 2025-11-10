@@ -1,0 +1,40 @@
+/* Mobile-first responsive design */
+@media (max-width: 430px) {
+  .app-container {
+    width: 100vw;
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+  }
+}
+
+/* iPhone notch and safe area support */
+@supports(padding: max(0px)) {
+  .app-container {
+    padding-left: min(0vmin, env(safe-area-inset-left));
+    padding-right: min(0vmin, env(safe-area-inset-right));
+    padding-top: min(0vmin, env(safe-area-inset-top));
+    padding-bottom: min(0vmin, env(safe-area-inset-bottom));
+  }
+}
+
+/* Prevent body scroll on mobile */
+body {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+/* Better touch interactions */
+button, .service-card, .vehicle-option {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  touch-action: manipulation;
+}
+
+/* Smooth scrolling */
+.suggestions-panel {
+  -webkit-overflow-scrolling: touch;
+}
