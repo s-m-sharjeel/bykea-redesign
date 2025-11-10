@@ -1,0 +1,147 @@
+.map-container {
+  background: white;
+  margin: 16px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+.map-area {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  background: #e8f4f8;
+  cursor: pointer;
+  touch-action: none;
+}
+
+.map-background {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background: linear-gradient(135deg, #87CEEB, #98FB98);
+}
+
+.map-roads {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.road {
+  position: absolute;
+  background: #555;
+}
+
+.road.horizontal {
+  width: 100%;
+  height: 6px;
+}
+
+.road.vertical {
+  width: 6px;
+  height: 100%;
+}
+
+.location-marker,
+.location-pin {
+  position: absolute;
+  font-size: 24px;
+  cursor: pointer;
+  user-select: none;
+  z-index: 10;
+  transition: transform 0.2s ease;
+}
+
+.location-pin {
+  font-size: 32px;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+}
+
+.location-pin.dragging {
+  z-index: 20;
+}
+
+.pin-pulse {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  border: 2px solid #FF6B35;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2);
+    opacity: 0;
+  }
+}
+
+.pickup-marker {
+  font-size: 20px;
+}
+
+.map-controls {
+  padding: 16px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.confirm-location-btn {
+  width: 100%;
+  background: linear-gradient(135deg, #FF6B35, #FF8E53);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 16px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 12px;
+}
+
+.confirm-location-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255,107,53,0.3);
+}
+
+.location-feedback {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 12px;
+  color: #666;
+}
+
+.location-feedback span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+@media (max-width: 430px) {
+  .map-container {
+    margin: 12px;
+  }
+  
+  .map-area {
+    height: 250px;
+  }
+  
+  .location-pin {
+    font-size: 28px;
+  }
+  
+  .confirm-location-btn {
+    padding: 14px;
+    font-size: 14px;
+  }
+}
